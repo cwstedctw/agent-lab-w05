@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>課間我想做什麼？</title>
+<style>
+:root{font-family:system-ui,"Microsoft JhengHei",sans-serif;color:#173c36;background:#f4f2e9}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:40px 24px}header{display:flex;justify-content:space-between;gap:20px;align-items:center}.eyebrow{font-size:12px;letter-spacing:.18em;color:#52756a}h1{font-size:clamp(28px,5vw,44px);margin:12px 0}p{line-height:1.65;color:#537068}section{background:#fffdf7;border:1px solid #d9dfd3;border-radius:20px;padding:26px;margin-top:24px}.filters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}label{display:block;font-weight:600}select{display:block;width:100%;margin-top:10px;padding:12px;border:1px solid #a9bcb1;border-radius:9px;background:white;color:inherit;font:inherit}button{font:inherit;cursor:pointer;border:1px solid #adc0b4;border-radius:10px;padding:11px 18px;background:transparent;color:inherit}.primary{background:#205c49;color:white;border-color:#205c49}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.result{background:#e9f0de;min-height:150px}.result h2{margin:12px 0;font-size:26px}.badge{font-size:13px;font-weight:700;letter-spacing:.06em}.history-head{display:flex;justify-content:space-between;align-items:center;gap:12px}h2{font-size:21px}ol{padding-left:24px}li{padding:12px 0;border-bottom:1px solid #e2e7dc;line-height:1.6}footer{margin-top:24px;font-size:13px;color:#537068}@media(max-width:600px){main{padding:24px 16px}header{align-items:flex-start}.filters{grid-template-columns:1fr}section{padding:20px}button{min-height:44px}}
+button:focus-visible,select:focus-visible{outline:3px solid #b05a22;outline-offset:4px}
+</style></head>
+<body><main><header><div><div class="eyebrow">CAMPUS BREAK</div><h1 data-text="title"></h1></div><button id="language" aria-label="Switch to English">English</button></header><p data-text="intro"></p>
+<section><div class="filters"><label><span data-text="location"></span><select id="location"><option value="all" data-text="all"></option><option value="indoor" data-text="indoor"></option><option value="outdoor" data-text="outdoor"></option></select></label><label><span data-text="time"></span><select id="time"><option value="15">15</option><option value="30" selected>30</option><option value="60">60</option></select></label><label><span data-text="energy"></span><select id="energy"><option value="all" data-text="all"></option><option value="low" data-text="low"></option><option value="medium" data-text="medium"></option></select></label></div><div class="actions"><button class="primary" id="pick" data-text="pick"></button><button id="reset" data-text="reset"></button></div></section>
+<section class="result" id="result" aria-live="polite" aria-atomic="true"></section>
+<section><div class="history-head"><h2 data-text="history"></h2><button id="clear" data-text="clear"></button></div><p id="empty" data-text="empty"></p><ol id="history"></ol></section><footer data-text="notice"></footer></main>
+<script id="activities" type="application/json">[
+  {
+    "id": "A01",
+    "name_zh": "整理書包",
+    "name_en": "Organize your bag",
+    "location_type": "indoor",
+    "minutes": 10,
+    "energy": "low"
+  },
+  {
+    "id": "A02",
+    "name_zh": "畫一張小卡",
+    "name_en": "Draw a small card",
+    "location_type": "indoor",
+    "minutes": 15,
+    "energy": "low"
+  },
+  {
+    "id": "A03",
+    "name_zh": "寫三句讀書筆記",
+    "name_en": "Write three study notes",
+    "location_type": "indoor",
+    "minutes": 10,
+    "energy": "low"
+  },
+  {
+    "id": "A04",
+    "name_zh": "安靜讀兩頁書",
+    "name_en": "Read two pages quietly",
+    "location_type": "indoor",
+    "minutes": 15,
+    "energy": "low"
+  },
+  {
+    "id": "A05",
+    "name_zh": "排好明日待辦",
+    "name_en": "Plan tomorrow’s tasks",
+    "location_type": "indoor",
+    "minutes": 20,
+    "energy": "low"
+  },
+  {
+    "id": "A06",
+    "name_zh": "整理本機練習檔",
+    "name_en": "Organize practice files",
+    "location_type": "indoor",
+    "minutes": 30,
+    "energy": "medium"
+  },
+  {
+    "id": "A07",
+    "name_zh": "在合適位置慢走",
+    "name_en": "Take a gentle walk in a suitable area",
+    "location_type": "outdoor",
+    "minutes": 15,
+    "energy": "low"
+  },
+  {
+    "id": "A08",
+    "name_zh": "觀察天空並畫草圖",
+    "name_en": "Observe the sky and sketch",
+    "location_type": "outdoor",
+    "minutes": 20,
+    "energy": "low"
+  },
+  {
+    "id": "A09",
+    "name_zh": "在合適位置快走",
+    "name_en": "Take a brisk walk in a suitable area",
+    "location_type": "outdoor",
+    "minutes": 30,
+    "energy": "medium"
+  },
+  {
+    "id": "A10",
+    "name_zh": "規劃小組練習",
+    "name_en": "Plan a group exercise",
+    "location_type": "indoor",
+    "minutes": 45,
+    "energy": "medium"
+  },
+  {
+    "id": "A11",
+    "name_zh": "記錄自然色彩",
+    "name_en": "Record colors in nature",
+    "location_type": "outdoor",
+    "minutes": 45,
+    "energy": "low"
+  },
+  {
+    "id": "A12",
+    "name_zh": "構思下一次社團活動",
+    "name_en": "Brainstorm a future club activity",
+    "location_type": "indoor",
+    "minutes": 60,
+    "energy": "medium"
+  }
+]
+</script>
+<script>
+'use strict';
+const activities=JSON.parse(document.getElementById('activities').textContent);
+const words={zh:{title:'課間我想做什麼？',intro:'留一點時間給自己。選好條件，找一件現在能做的小事。',location:'地點',time:'可用時間（分鐘）',energy:'活動強度',all:'不限',indoor:'室內',outdoor:'室外',low:'低強度',medium:'中強度',pick:'幫我選',reset:'重設篩選',history:'最近 5 次成功抽選',clear:'清除紀錄',empty:'還沒有抽選紀錄。',notice:'教學模擬活動，不是校方公告',ready:'準備好休息一下了嗎？',hint:'設定條件後，按「幫我選」。',none:'沒有符合條件的活動',retry:'試著調整篩選條件，再挑選一次。',minutes:'分鐘'},en:{title:'What shall I do between classes?',intro:'Make a little time for yourself. Choose your filters and find something to do now.',location:'Location',time:'Available time (minutes)',energy:'Activity intensity',all:'Any',indoor:'Indoor',outdoor:'Outdoor',low:'Low',medium:'Medium',pick:'Pick for me',reset:'Reset filters',history:'Last 5 successful picks',clear:'Clear history',empty:'No picks yet.',notice:'Simulated teaching activities, not a university announcement.',ready:'Ready for a little break?',hint:'Choose your filters, then press “Pick for me”.',none:'No activities match your filters',retry:'Try adjusting the filters and pick again.',minutes:'minutes'}};
+let language='zh',history=[],result=null,noMatch=false;
+const el=id=>document.getElementById(id);
+function matchingActivities(){return activities.filter(a=>(el('location').value==='all'||a.location_type===el('location').value)&&a.minutes<=Number(el('time').value)&&(el('energy').value==='all'||a.energy===el('energy').value));}
+function details(a){const t=words[language];return `${a.minutes} ${t.minutes} · ${t[a.location_type]} · ${t[a.energy]}`;}
+function activityMarkup(a){return `<span class="badge">${a.id}</span><h2>${a['name_'+language]}</h2><p>${details(a)}</p>`;}
+function render(){const t=words[language];document.documentElement.lang=language==='zh'?'zh-Hant':'en';document.title=t.title;document.querySelectorAll('[data-text]').forEach(e=>e.textContent=t[e.dataset.text]);el('language').textContent=language==='zh'?'English':'中文';el('language').setAttribute('aria-label',language==='zh'?'Switch to English':'切換中文');el('result').innerHTML=result?activityMarkup(result):`<h2>${noMatch?t.none:t.ready}</h2><p>${noMatch?t.retry:t.hint}</p>`;el('empty').hidden=history.length>0;el('history').innerHTML=history.map(a=>`<li><strong>${a.id} · ${a['name_'+language]}</strong><br>${details(a)}</li>`).join('');}
+el('pick').addEventListener('click',()=>{const matches=matchingActivities();result=matches.length?matches[Math.floor(Math.random()*matches.length)]:null;noMatch=!result;if(result)history=[result,...history].slice(0,5);render();});
+el('reset').addEventListener('click',()=>{el('location').value='all';el('time').value='30';el('energy').value='all';result=null;noMatch=false;render();});
+el('clear').addEventListener('click',()=>{history=[];render();});
+el('language').addEventListener('click',()=>{language=language==='zh'?'en':'zh';render();});
+render();
+</script></body></html>
+
