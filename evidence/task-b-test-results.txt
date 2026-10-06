@@ -1,0 +1,8 @@
+PASS 1: indoor/15/low, 20 picks
+PASS 2: no match, filters and history preserved
+PASS 3: outdoor/30/medium, 10 picks are A09
+PASS 4: latest 5 of 6 picks, newest first
+PASS 5: reset defaults, history preserved
+PASS 6: clear history, English UI strings and activity
+PASS: embedded original dataset; no network or persistent storage
+PASS revision v2: count updates on filter, language and reset; history preserved

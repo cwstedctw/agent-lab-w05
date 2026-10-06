@@ -1,0 +1,2 @@
+PASS A: all 12 manifest entries have byte-identical output copies
+PASS C: 10 input, 9 retained, 1 empty removed; duplicate IDs retained; qty and source bytes unchanged; unknown status reported
