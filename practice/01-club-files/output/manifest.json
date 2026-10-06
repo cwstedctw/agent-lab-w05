@@ -1,0 +1,62 @@
+[
+  {
+    "source": "announcement.txt",
+    "destination": "publicity/announcement.txt",
+    "reason": "活動通告，與 announcement_copy.txt 內容完全相同，歸入宣傳公告類別並保留副本"
+  },
+  {
+    "source": "announcement_copy.txt",
+    "destination": "publicity/announcement_copy.txt",
+    "reason": "活動通告副本，與 announcement.txt 內容完全相同，歸入宣傳公告類別並保留副本"
+  },
+  {
+    "source": "budget_draft.txt",
+    "destination": "admin/budget_draft.txt",
+    "reason": "活動紙張預算草案，歸入行政與物資類別"
+  },
+  {
+    "source": "equipment_backup.txt",
+    "destination": "admin/equipment_backup.txt",
+    "reason": "器材清單備份，與 equipment_list.txt 內容完全相同，歸入行政與物資類別並保留副本"
+  },
+  {
+    "source": "equipment_list.txt",
+    "destination": "admin/equipment_list.txt",
+    "reason": "器材清單，與 equipment_backup.txt 內容完全相同，歸入行政與物資類別並保留副本"
+  },
+  {
+    "source": "feedback_questions.txt",
+    "destination": "meetings/feedback_questions.txt",
+    "reason": "活動回饋問題題綱，歸入會議與回饋類別"
+  },
+  {
+    "source": "meeting_notes.txt",
+    "destination": "meetings/meeting_notes.txt",
+    "reason": "開會討論方案紀錄，歸入會議與回饋類別"
+  },
+  {
+    "source": "next_steps.txt",
+    "destination": "proposals/next_steps.txt",
+    "reason": "後續企畫比較與討論步驟，歸入企畫方案類別"
+  },
+  {
+    "source": "poster_text.txt",
+    "destination": "publicity/poster_text.txt",
+    "reason": "宣傳小卡海報文案，歸入宣傳公告類別"
+  },
+  {
+    "source": "proposal_final.txt",
+    "destination": "proposals/proposal_final.txt",
+    "reason": "企畫第一版（戶外活動30分鐘），與 proposal_final2.txt 為不同企畫版本，依規範全數保留並歸入企畫方案類別"
+  },
+  {
+    "source": "proposal_final2.txt",
+    "destination": "proposals/proposal_final2.txt",
+    "reason": "企畫第二版（室內活動20分鐘），與 proposal_final.txt 為不同企畫版本，依規範全數保留並歸入企畫方案類別"
+  },
+  {
+    "source": "rain_plan.txt",
+    "destination": "proposals/rain_plan.txt",
+    "reason": "下雨時室內備案討論計畫，歸入企畫方案類別"
+  }
+]
